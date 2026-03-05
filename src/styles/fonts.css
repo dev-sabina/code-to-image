@@ -1,0 +1,15 @@
+@import '@fontsource/fira-code';
+@import '@fontsource/jetbrains-mono';
+@import '@fontsource/source-code-pro';
+
+.font-fira {
+  font-family: 'Fira Code', monospace;
+}
+
+.font-jetbrains {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-source {
+  font-family: 'Source Code Pro', monospace;
+}

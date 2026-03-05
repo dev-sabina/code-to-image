@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+/* ---------------------------- */
+/* GLOBAL TECH UI HOVER SYSTEM  */
+/* ---------------------------- */
+
+:root {
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: rgba(120, 120, 255, 0.25);
+}
+
+/* smooth ui */
+
+button,
+select,
+input,
+.card {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* glass hover */
+
+button:hover,
+select:hover,
+input:hover,
+.card:hover {
+  transform: translateY(-2px) scale(1.01);
+
+  backdrop-filter: blur(8px);
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  border-color: rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 25px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(120, 120, 255, 0.15);
+}
+
+/* active press */
+
+button:active {
+  transform: scale(0.97);
+}
