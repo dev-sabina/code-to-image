@@ -41,13 +41,15 @@ export default function App() {
           </h1>
         </div>
 
-        <a
-          href="https://github.com/"
-          target="_blank"
-          className="p-2 rounded-lg border border-neutral-800 hover:bg-neutral-900 transition"
-        >
-          <Github size={20} className="text-purple-500" />
-        </a>
+       <a
+  href="https://github.com/dev-sabina/code-to-image"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="View source on GitHub"
+  className="p-2 rounded-lg border border-neutral-800 hover:bg-neutral-900 transition"
+>
+  <Github size={20} className="text-purple-500" />
+</a>
       </header>
 
       {/* MAIN */}
