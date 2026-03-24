@@ -10,8 +10,8 @@ import WidthSelect from './components/editor/WidthSelect'
 import WindowStyle from './components/editor/WindowStyle'
 import FormatSelect from './components/Controls/ExportButton'
 import DarkToggle from './components/Controls/ThemeSelect'
+import { StarsBackground } from './components/animate-ui/components/backgrounds/stars';
 
-import StarsBackground from "./components/StarsBackground";
 import {
   exportAsPNG,
   exportAsSVG,
@@ -27,39 +27,38 @@ export default function App() {
     toggleLineNumbers,
     showBackground,
     showLineNumbers
-  } = useEditorStore()
+  } = useEditorStore();
 
   return (
-   <div className="min-h-screen relative text-white flex flex-col">
-
-       <StarsBackground />
+    <StarsBackground
+      factor={0.03}       // parallax intensity
+      speed={50}          // animation speed
+      starColor="#fff"    // star color
+      pointerEvents={false} // allow clicks to pass through
+      className="min-h-screen text-white flex flex-col"
+    >
       {/* HEADER */}
-
       <header className="w-full px-6 md:px-10 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Code2 size={26} className="text-purple-500" strokeWidth={2.5} />
-
           <h1 className="text-lg md:text-xl font-semibold tracking-wide bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
             Code to Image
           </h1>
         </div>
 
-       <a
-  href="https://github.com/dev-sabina/code-to-image"
-  target="_blank"
-  rel="noopener noreferrer"
-  title="View source on GitHub"
-  className="p-2 rounded-lg border border-neutral-800 hover:bg-neutral-900 transition"
->
-  <Github size={20} className="text-purple-500" />
-</a>
+        <a
+          href="https://github.com/dev-sabina/code-to-image"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View source on GitHub"
+          className="p-2 rounded-lg border border-neutral-800 hover:bg-neutral-900 transition"
+        >
+          <Github size={20} className="text-purple-500" />
+        </a>
       </header>
 
       {/* MAIN */}
-
       <main className="w-full flex flex-col items-center pt-6 md:pt-10 pb-16 gap-12">
-        {/* PREVIEW */}
-
         <div className="flex justify-center w-full px-4">
           <div className="max-w-5xl w-full flex justify-center overflow-x-auto">
             <CodePreview />
@@ -67,53 +66,21 @@ export default function App() {
         </div>
 
         {/* CONTROLS PANEL */}
-
-        <div
-          className="
-        w-full
-        max-w-3xl
-        mx-4
-        border border-neutral-800
-        rounded-xl
-        bg-[#111]/80
-        backdrop-blur-sm
-        p-4
-        shadow-[0_0_30px_rgba(0,0,0,0.4)]
-        "
-        >
-          {/* GRID */}
-
-          <div
-            className="
-          grid
-          grid-cols-2
-          sm:grid-cols-3
-          md:grid-cols-4
-          gap-3
-          "
-          >
-            {/* ROW 1 */}
-
+        <div className="w-full max-w-3xl mx-4 border border-neutral-800 rounded-xl bg-[#111]/80 backdrop-blur-sm p-4 shadow-[0_0_30px_rgba(0,0,0,0.4)]">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
             <FontSelect />
             <PaddingSelect />
             <LanguageSelect />
             <DarkToggle />
-
-            {/* ROW 2 */}
-
             <div className="col-span-2 md:col-span-2">
               <BackgroundControls />
             </div>
-
             <FormatSelect />
-
             <div className="flex flex-col gap-4">
               <WindowStyle />
-
               {/* Background Toggle */}
               <div className="flex items-center justify-between border border-neutral-800 rounded-lg px-3 py-2">
                 <span className="text-sm text-gray-400">Background</span>
-
                 <button
                   onClick={toggleBackground}
                   className={`relative w-12 h-7 rounded-full transition ${
@@ -131,7 +98,6 @@ export default function App() {
               {/* Line Numbers Toggle */}
               <div className="flex items-center justify-between border border-neutral-800 rounded-lg px-3 py-2">
                 <span className="text-sm text-gray-400">Lines</span>
-
                 <button
                   onClick={toggleLineNumbers}
                   className={`relative w-12 h-7 rounded-full transition ${
@@ -147,47 +113,28 @@ export default function App() {
               </div>
             </div>
 
-            {/* ROW 3 */}
-
+            {/* Row 3 */}
             <AngleControl />
             <WidthSelect />
 
             {/* RESET */}
-
             <button
               onClick={reset}
-              className="
-              px-4 py-2
-              text-sm
-              rounded-lg
-              bg-neutral-900
-              border border-neutral-700
-              hover:bg-neutral-800
-              transition
-              "
+              className="px-4 py-2 text-sm rounded-lg bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 transition"
             >
               Reset
             </button>
 
             {/* COPY */}
-
             <button
               onClick={copyImage}
-              className="
-              px-4 py-2
-              text-sm
-              rounded-lg
-              bg-neutral-900
-              border border-neutral-700
-              hover:bg-neutral-800
-              transition
-              "
+              className="px-4 py-2 text-sm rounded-lg bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 transition"
             >
               Copy
             </button>
           </div>
         </div>
       </main>
-    </div>
-  )
+    </StarsBackground>
+  );
 }
