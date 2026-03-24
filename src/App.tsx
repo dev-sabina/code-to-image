@@ -11,6 +11,7 @@ import WindowStyle from './components/editor/WindowStyle'
 import FormatSelect from './components/Controls/ExportButton'
 import DarkToggle from './components/Controls/ThemeSelect'
 
+import StarsBackground from "./components/StarsBackground";
 import {
   exportAsPNG,
   exportAsSVG,
@@ -29,7 +30,9 @@ export default function App() {
   } = useEditorStore()
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+   <div className="min-h-screen relative text-white flex flex-col">
+
+       <StarsBackground />
       {/* HEADER */}
 
       <header className="w-full px-6 md:px-10 py-5 flex items-center justify-between">
